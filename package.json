@@ -1,0 +1,16 @@
+{
+  "name": "prep",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^2.4.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc --allowJs",
+    "build:watch": "npm run build -- --watch"
+  }
+}

@@ -18,6 +18,14 @@ describe('LinkedList', () => {
     expect(next!.prev!.data).toBe('World');
   });
 
+  it('converts list to array', () => {
+    const linkedList = new LinkedList<string>();
+    linkedList.addLast('Hello');
+    linkedList.addLast('World');
+    linkedList.addLast('!');
+    expect(linkedList.toArray()).toMatchObject(['Hello', 'World', '!']);
+  });
+
   it('adds nodes to the end of the list and updates references', () => {
     const linkedList = new LinkedList<string>();
     linkedList.addLast('Hello');

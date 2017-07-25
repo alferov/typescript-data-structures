@@ -125,6 +125,17 @@ export default class LinkedList<T> {
     this.size = this.size + 1;
   }
 
+  public toArray(): T[] {
+    const result = [];
+    let node = this.head;
+    while (node) {
+      result.push(node.data);
+      node = node!.next;
+    }
+
+    return result;
+  }
+
   private addBeforeNode(node: LinkedListItem<T>, newNode: LinkedListItem<T>): void {
     newNode.next = node;
     if (!node.prev) {

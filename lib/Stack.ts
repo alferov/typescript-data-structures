@@ -23,12 +23,8 @@ export default class Stack<T> {
   public push(data: T): number {
     const newNode = new StackNode(data);
 
-    if (!this.top) {
-      this.top = newNode;
-    } else {
-      newNode.next = this.top;
-      this.top = newNode;
-    }
+    if (this.top) newNode.next = this.top;
+    this.top = newNode;
 
     this.size = this.size + 1;
     return this.size;

@@ -72,14 +72,15 @@ export default class LinkedList<T> {
     this.size = 0;
   }
 
-  public find(callback: Comparator): LinkedListItem<T> | void {
+  public find(callback: Comparator): T | void {
     if (!this.size) return;
 
     let node = this.head;
 
     while (node) {
-      const match = callback(node.data);
-      if (match) return node;
+      const { data } = node;
+      const match = callback(data);
+      if (match) return data;
       node = node.next;
     }
 

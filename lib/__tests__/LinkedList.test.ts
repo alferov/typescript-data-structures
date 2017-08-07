@@ -55,8 +55,8 @@ describe('LinkedList', () => {
     const linkedList = new LinkedList<string>();
     linkedList.addLast('Hello');
     linkedList.addLast('World');
-    const node = linkedList.find((data) => data === 'Hello');
-    expect(node!.data).toBe('Hello');
+    const data = linkedList.find((nodeData) => nodeData === 'Hello');
+    expect(data).toBe('Hello');
   });
 
   it('removes the node at the specified position', () => {

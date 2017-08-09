@@ -1,7 +1,5 @@
-import LinkedList from './lib/LinkedList';
-import Stack from './lib/Stack';
+import DoublyLinkedList from './lib/DoublyLinkedList/DoublyLinkedList';
+import Queue from './lib/Queue/Queue';
+import Stack from './lib/Stack/Stack';
 
-const list = new LinkedList<string>();
-list.addFirst("Test");
-
-export { Stack, LinkedList };
+export { Stack, DoublyLinkedList, Queue };

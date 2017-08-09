@@ -1,8 +1,8 @@
-import LinkedList from '../LinkedList';
+import DoublyLinkedList from '../DoublyLinkedList';
 
-describe('LinkedList', () => {
+describe('DoublyLinkedList', () => {
   it('adds nodes to the begining of the list and updates references', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addFirst('Hello');
     let first = linkedList.getFirst();
     expect(first!.data).toBe('Hello');
@@ -19,7 +19,7 @@ describe('LinkedList', () => {
   });
 
   it('converts list to array', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addLast('Hello');
     linkedList.addLast('World');
     linkedList.addLast('!');
@@ -27,7 +27,7 @@ describe('LinkedList', () => {
   });
 
   it('adds nodes to the end of the list and updates references', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addLast('Hello');
     let last = linkedList.getLast();
     expect(last!.data).toBe('Hello');
@@ -44,7 +44,7 @@ describe('LinkedList', () => {
   });
 
   it('clears the list', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addLast('Hello');
     linkedList.addLast('World');
     linkedList.clear();
@@ -52,7 +52,7 @@ describe('LinkedList', () => {
   });
 
   it('finds node', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addLast('Hello');
     linkedList.addLast('World');
     const data = linkedList.find((nodeData) => nodeData === 'Hello');
@@ -60,7 +60,7 @@ describe('LinkedList', () => {
   });
 
   it('removes the node at the specified position', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addLast('Hello');
     linkedList.addLast('World');
     linkedList.addLast('!');
@@ -77,7 +77,7 @@ describe('LinkedList', () => {
   });
 
   it('returns the element at the specified position ', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     expect(linkedList.get(0)).toBeFalsy();
     linkedList.addLast('Hello');
     expect(linkedList.get(0)!.data).toBe('Hello');
@@ -90,7 +90,7 @@ describe('LinkedList', () => {
   });
 
   it('adds before the element at the specified position ', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addFirst('Hello');
     linkedList.addBefore(0, 'World');
     linkedList.addBefore(1, '!');
@@ -101,7 +101,7 @@ describe('LinkedList', () => {
   });
 
   it('adds after the element at the specified position ', () => {
-    const linkedList = new LinkedList<string>();
+    const linkedList = new DoublyLinkedList<string>();
     linkedList.addFirst('Hello');
     linkedList.addAfter(0, 'World');
     linkedList.addAfter(1, '!');

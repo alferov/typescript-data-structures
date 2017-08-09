@@ -1,8 +1,8 @@
 type Comparator = (data: any) => boolean;
 
-export class LinkedListItem<T> {
-  public next: LinkedListItem<T> | void;
-  public prev: LinkedListItem<T> | void;
+export class DoublyLinkedListItem<T> {
+  public next: DoublyLinkedListItem<T> | void;
+  public prev: DoublyLinkedListItem<T> | void;
   public data: T;
 
   constructor(data: T) {
@@ -10,13 +10,12 @@ export class LinkedListItem<T> {
   }
 }
 
-// tslint:disable-next-line:max-classes-per-file
-export default class LinkedList<T> {
-  private head: LinkedListItem<T> | void;
-  private tail: LinkedListItem<T> | void;
+export default class DoublyLinkedList<T> {
+  private head: DoublyLinkedListItem<T> | void;
+  private tail: DoublyLinkedListItem<T> | void;
   private size: number = 0;
 
-  public get(targetIndex: number): LinkedListItem<T> | void {
+  public get(targetIndex: number): DoublyLinkedListItem<T> | void {
     if (this.size < targetIndex || !this.head) return;
     if (targetIndex === 0) return this.head;
     if (targetIndex === this.size - 1) return this.tail;
@@ -36,7 +35,7 @@ export default class LinkedList<T> {
   }
 
   public addFirst(data: T): void {
-    const newNode = new LinkedListItem<T>(data);
+    const newNode = new DoublyLinkedListItem<T>(data);
 
     if (!this.head) {
       this.head = newNode;
@@ -48,7 +47,7 @@ export default class LinkedList<T> {
     this.size = this.size + 1;
   }
 
-  public getFirst(): LinkedListItem<T> | void {
+  public getFirst(): DoublyLinkedListItem<T> | void {
     return this.head;
   }
 
@@ -58,12 +57,12 @@ export default class LinkedList<T> {
       return;
     }
 
-    const newNode = new LinkedListItem<T>(data);
+    const newNode = new DoublyLinkedListItem<T>(data);
     this.addAfterNode(this.tail, newNode);
     this.size = this.size + 1;
   }
 
-  public getLast(): LinkedListItem<T> | void {
+  public getLast(): DoublyLinkedListItem<T> | void {
     return this.tail;
   }
 
@@ -87,7 +86,7 @@ export default class LinkedList<T> {
     return;
   }
 
-  public remove(targetIndex: number): LinkedListItem<T> | void {
+  public remove(targetIndex: number): DoublyLinkedListItem<T> | void {
     const node = this.get(targetIndex);
     if (!node) return;
 
@@ -111,7 +110,7 @@ export default class LinkedList<T> {
 
     if (!node) return;
 
-    const newNode = new LinkedListItem<T>(data);
+    const newNode = new DoublyLinkedListItem<T>(data);
     this.addBeforeNode(node, newNode);
     this.size = this.size + 1;
   }
@@ -121,7 +120,7 @@ export default class LinkedList<T> {
 
     if (!node) return;
 
-    const newNode = new LinkedListItem<T>(data);
+    const newNode = new DoublyLinkedListItem<T>(data);
     this.addAfterNode(node, newNode);
     this.size = this.size + 1;
   }
@@ -137,7 +136,7 @@ export default class LinkedList<T> {
     return result;
   }
 
-  private addBeforeNode(node: LinkedListItem<T>, newNode: LinkedListItem<T>): void {
+  private addBeforeNode(node: DoublyLinkedListItem<T>, newNode: DoublyLinkedListItem<T>): void {
     newNode.next = node;
     if (!node.prev) {
       this.head = newNode;
@@ -148,7 +147,7 @@ export default class LinkedList<T> {
     node.prev = newNode;
   }
 
-  private addAfterNode(node: LinkedListItem<T>, newNode: LinkedListItem<T>): void {
+  private addAfterNode(node: DoublyLinkedListItem<T>, newNode: DoublyLinkedListItem<T>): void {
     newNode.prev = node;
     if (!node.next) {
       this.tail = newNode;
